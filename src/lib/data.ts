@@ -17,10 +17,10 @@ import {
 } from "lucide-react";
 
 // Import images from Figma assets
-import imgIntro1 from "figma:asset/f7855680c02e10fbca56885d3d58071e0cddedad.png";
-import imgIntro2 from "figma:asset/20f3221f11029b25fd0033389a4588687da49b77.png";
-import imgIntro3 from "figma:asset/2a11502a1532fa456124c21da85151959f25facb.png";
-import imgIntro4 from "figma:asset/7fecb953b563b642ac8b221ae1f0f19c4a5e4b89.png";
+import imgIntro1 from "../assets/f7855680c02e10fbca56885d3d58071e0cddedad.png";
+import imgIntro2 from "../assets/20f3221f11029b25fd0033389a4588687da49b77.png";
+import imgIntro3 from "../assets/2a11502a1532fa456124c21da85151959f25facb.png";
+import imgIntro4 from "../assets/7fecb953b563b642ac8b221ae1f0f19c4a5e4b89.png";
 
 export type NavItem = {
   id: string;
