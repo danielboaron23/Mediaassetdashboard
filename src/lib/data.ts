@@ -40,6 +40,10 @@ export type Asset = {
   fileSize: string;
   date: string;
   mediaFormat: 'Video' | 'Image';
+  origin: 'my_upload' | 'template';
+  categories?: string[];
+  createdBy?: string;
+  lastModified?: string;
 };
 
 export const mainNavItems: NavItem[] = [
@@ -73,7 +77,10 @@ export const assets: Asset[] = [
     type: 'intro',
     fileSize: '2.4 MB',
     date: '6/10/2025',
-    mediaFormat: 'Video'
+    mediaFormat: 'Video',
+    origin: 'my_upload',
+    categories: ['Intros'],
+    lastModified: 'Dec 28, 2024'
   },
   {
     id: '2',
@@ -85,19 +92,25 @@ export const assets: Asset[] = [
     type: 'intro',
     fileSize: '3.7 MB',
     date: '5/10/2025',
-    mediaFormat: 'Video'
+    mediaFormat: 'Video',
+    origin: 'my_upload',
+    categories: ['Intros'],
+    lastModified: 'Dec 20, 2024'
   },
   {
     id: '3',
-    title: 'Victory Launch',
+    title: 'Corporate Intro Template',
     thumbnail: imgIntro3,
     duration: '0:04',
     isFavorite: false,
-    aspectRatios: ['16:9', '9:16'],
+    aspectRatios: ['16:9', '9:16', '1:1'],
     type: 'intro',
     fileSize: '4.3 MB',
-    date: '5/10/2025',
-    mediaFormat: 'Video'
+    date: 'Nov 10, 2024',
+    mediaFormat: 'Video',
+    origin: 'template',
+    categories: ['Intros', 'Essentials'],
+    createdBy: 'WSC Sport'
   },
   {
     id: '4',
@@ -109,7 +122,10 @@ export const assets: Asset[] = [
     type: 'intro',
     fileSize: '368 KB',
     date: '1/10/2025',
-    mediaFormat: 'Image'
+    mediaFormat: 'Image',
+    origin: 'my_upload',
+    categories: ['Intros'],
+    lastModified: 'Dec 15, 2024'
   },
   // Duplicating for Midtros section demo
   {
@@ -122,7 +138,10 @@ export const assets: Asset[] = [
     type: 'midtro',
     fileSize: '2.4 MB',
     date: '6/10/2025',
-    mediaFormat: 'Video'
+    mediaFormat: 'Video',
+    origin: 'my_upload',
+    categories: ['Midtros'],
+    lastModified: 'Dec 25, 2024'
   },
   {
     id: '6',
@@ -134,19 +153,25 @@ export const assets: Asset[] = [
     type: 'midtro',
     fileSize: '3.7 MB',
     date: '5/10/2025',
-    mediaFormat: 'Video'
+    mediaFormat: 'Video',
+    origin: 'my_upload',
+    categories: ['Midtros'],
+    lastModified: 'Dec 18, 2024'
   },
   {
     id: '7',
-    title: 'Player Stats',
+    title: 'Player Stats Template',
     thumbnail: imgIntro3,
     duration: '0:04',
     isFavorite: false,
     aspectRatios: ['16:9', '9:16'],
     type: 'midtro',
     fileSize: '4.3 MB',
-    date: '5/10/2025',
-    mediaFormat: 'Video'
+    date: 'Oct 5, 2024',
+    mediaFormat: 'Video',
+    origin: 'template',
+    categories: ['Midtros', 'Essentials'],
+    createdBy: 'WSC Sport'
   },
   {
     id: '8',
@@ -158,6 +183,9 @@ export const assets: Asset[] = [
     type: 'midtro',
     fileSize: '368 KB',
     date: '1/10/2025',
-    mediaFormat: 'Image'
+    mediaFormat: 'Image',
+    origin: 'my_upload',
+    categories: ['Midtros'],
+    lastModified: 'Dec 10, 2024'
   },
 ];

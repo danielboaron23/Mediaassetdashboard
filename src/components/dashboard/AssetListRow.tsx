@@ -5,16 +5,26 @@ import { cn } from '../../lib/utils';
 
 interface AssetListRowProps {
   asset: Asset;
+  onClick?: (asset: Asset) => void;
 }
 
-export function AssetListRow({ asset }: AssetListRowProps) {
+export function AssetListRow({ asset, onClick }: AssetListRowProps) {
   const [isHovered, setIsHovered] = React.useState(false);
+
+  const handleClick = (e: React.MouseEvent) => {
+    // Prevent click when clicking action buttons
+    if ((e.target as HTMLElement).closest('button')) {
+      return;
+    }
+    onClick?.(asset);
+  };
 
   return (
     <div 
-      className="flex items-center gap-4 py-2 w-full border-b border-[#333333] hover:bg-[#181818]/50 transition-colors group px-2"
+      className="flex items-center gap-4 py-2 w-full border-b border-[#333333] hover:bg-[#181818]/50 transition-colors group px-2 cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleClick}
     >
       {/* Thumbnail */}
       <div className="relative w-[70px] h-[40px] shrink-0 rounded-[2px] overflow-hidden border border-[#333333] bg-[#181818]">

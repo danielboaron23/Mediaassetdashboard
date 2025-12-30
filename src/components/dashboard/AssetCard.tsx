@@ -5,16 +5,26 @@ import { cn } from '../../lib/utils';
 
 interface AssetCardProps {
   asset: Asset;
+  onClick?: (asset: Asset) => void;
 }
 
-export function AssetCard({ asset }: AssetCardProps) {
+export function AssetCard({ asset, onClick }: AssetCardProps) {
   const [isHovered, setIsHovered] = React.useState(false);
+
+  const handleClick = (e: React.MouseEvent) => {
+    // Prevent click when clicking the favorite button
+    if ((e.target as HTMLElement).closest('button')) {
+      return;
+    }
+    onClick?.(asset);
+  };
 
   return (
     <div 
       className="flex flex-col gap-2 w-full max-w-[350px] group cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleClick}
     >
       {/* Thumbnail Container */}
       <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-[#333333] bg-[#181818]">

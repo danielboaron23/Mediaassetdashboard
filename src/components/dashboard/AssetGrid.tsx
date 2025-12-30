@@ -4,7 +4,11 @@ import { SectionCard } from './SectionCard';
 import { assets as initialAssets, Asset } from '../../lib/data';
 import { Toast } from '../ui/Toast';
 
-export function AssetGrid() {
+interface AssetGridProps {
+  onAssetClick?: (asset: Asset) => void;
+}
+
+export function AssetGrid({ onAssetClick }: AssetGridProps) {
   const [viewMode, setViewMode] = React.useState<'grid' | 'list'>('grid');
   const [assets, setAssets] = React.useState<Asset[]>(initialAssets);
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -43,6 +47,7 @@ export function AssetGrid() {
           assets={introAssets} 
           viewMode={viewMode}
           onAssetUpload={handleAssetUpload}
+          onAssetClick={onAssetClick}
         />
         
         <SectionCard 
@@ -51,6 +56,7 @@ export function AssetGrid() {
           assets={midtroAssets} 
           viewMode={viewMode}
           onAssetUpload={handleAssetUpload}
+          onAssetClick={onAssetClick}
         />
       </div>
 
