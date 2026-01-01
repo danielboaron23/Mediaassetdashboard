@@ -12,10 +12,9 @@ interface SectionCardProps {
   assets: Asset[];
   viewMode: 'grid' | 'list';
   onAssetUpload?: (asset: Asset) => void;
-  onAssetClick?: (asset: Asset) => void;
 }
 
-export function SectionCard({ title, count, assets, viewMode, onAssetUpload, onAssetClick }: SectionCardProps) {
+export function SectionCard({ title, count, assets, viewMode, onAssetUpload }: SectionCardProps) {
   const [filter, setFilter] = React.useState<'all' | 'essentials'>('all');
   const [isUploadOpen, setIsUploadOpen] = React.useState(false);
 
@@ -72,13 +71,13 @@ export function SectionCard({ title, count, assets, viewMode, onAssetUpload, onA
         {viewMode === 'grid' ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {assets.map((asset) => (
-              <AssetCard key={asset.id} asset={asset} onClick={onAssetClick} />
+              <AssetCard key={asset.id} asset={asset} />
             ))}
           </div>
         ) : (
           <div className="flex flex-col w-full">
              {assets.map((asset) => (
-               <AssetListRow key={asset.id} asset={asset} onClick={onAssetClick} />
+               <AssetListRow key={asset.id} asset={asset} />
              ))}
           </div>
         )}
